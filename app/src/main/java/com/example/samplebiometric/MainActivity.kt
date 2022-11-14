@@ -27,6 +27,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
 
+       setBiometric()
+
+        setContentView(view)
+    }
+
+    private fun setBiometric() {
         checkDeviceHasBiometric()
 
         executor = ContextCompat.getMainExecutor(this)
@@ -56,8 +62,6 @@ class MainActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
             biometricPrompt.authenticate(promptInfo)
         }
-
-        setContentView(view)
     }
 
     fun checkDeviceHasBiometric() {
